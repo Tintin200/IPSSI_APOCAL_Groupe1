@@ -134,16 +134,29 @@ class GenerateQuizView(APIView):
             except PDFError as exc:
                 return Response({"detail": str(exc)}, status=status.HTTP_400_BAD_REQUEST)
 
-        # 2. Appel LLM (Ollama ou Mock)
+        # 2. Validation pré-LLM (détection d'injections de prompt)
+        from .services.quiz_prompt import detect_prompt_injection
+        try:
+            detect_prompt_injection(source_text)
+        except LLMError as exc:
+            return Response(
+                {"detail": f"Texte source rejeté : {exc}"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # 3. Appel LLM (Ollama ou Mock)
         try:
             questions_data = get_llm_client().generate_quiz(source_text=source_text, title=title)
+            # Validation post-LLM (structure, options distinctes, distribution correct_index)
+            from .services.quiz_prompt import validate_quiz_questions
+            questions_data = validate_quiz_questions(questions_data)
         except LLMError as exc:
             return Response(
                 {"detail": f"Échec génération LLM : {exc}"},
                 status=status.HTTP_502_BAD_GATEWAY,
             )
 
-        # 3. Persistance — Quiz + 10 Questions dans une transaction
+        # 4. Persistance — Quiz + 10 Questions dans une transaction
         from django.db import transaction
 
         with transaction.atomic():
