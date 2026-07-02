@@ -4,7 +4,7 @@
 **Date :** 2026-06-30
 **Contexte :** Perturbation J2 — latence inacceptable
 **Feature concernée :** F3 — Génération automatique de 10 QCM via LLM
-**Référence :** Compte rendu `docs/cadrage/benchmark-llm.md` (benchmark des 8 backends — source de vérité)
+**Référence :** Compte rendu `docs/benchmark-llm.md` (benchmark des 8 backends — source de vérité)
 
 ## 1. Contexte
 
@@ -25,7 +25,7 @@ La génération de quiz est une fonctionnalité centrale d'un produit destiné �
 
 Nous décidons d'utiliser **Mistral `mistral-small-latest`** comme backend principal pour la génération de QCM.
 
-Ce choix suit la recommandation n°1 du benchmark (`docs/cadrage/benchmark-llm.md` §6) : c'est le meilleur compromis pour un produit en production destiné à de vrais utilisateurs européens. Le backend local **Ollama** reste conservé comme solution de repli (`fallback`), **Cerebras `gpt-oss-120b` / Groq 70B** est documenté comme alternative si la priorité devient la performance brute (résidence des données non bloquante), et **Qwen 3 8B** comme option 100 % souveraine si le PO impose que rien ne quitte notre infrastructure.
+Ce choix suit la recommandation n°1 du benchmark (`docs/benchmark-llm.md` §6) : c'est le meilleur compromis pour un produit en production destiné à de vrais utilisateurs européens. Le backend local **Ollama** reste conservé comme solution de repli (`fallback`), **Cerebras `gpt-oss-120b` / Groq 70B** est documenté comme alternative si la priorité devient la performance brute (résidence des données non bloquante), et **Qwen 3 8B** comme option 100 % souveraine si le PO impose que rien ne quitte notre infrastructure.
 
 ## 4. Justification
 

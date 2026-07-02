@@ -46,7 +46,7 @@
   du produit (nouveau traitement, nouveau sous-traitant, changement de fournisseur LLM).
 
 > **Lien LLM ↔ rétention :** le fournisseur de génération retenu est **Mistral** (hébergé UE, cf.
-> [`../adr/ADR-J2-grp1.md`](../adr/ADR-J2-grp1.md)). Le `source_text` transmis pour générer un quiz
+> [`../adr/ADR-J2-CHOIX-DU-LLM.md`](../adr/ADR-J2-CHOIX-DU-LLM.md)). Le `source_text` transmis pour générer un quiz
 > n'est **pas conservé** par le fournisseur au-delà du traitement de la requête (à confirmer au DPA).
 > En cas de bascule sur un fournisseur hors UE (Cerebras/Groq), ce transfert devra être tracé ici et
 > au registre.

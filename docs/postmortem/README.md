@@ -3,7 +3,8 @@
 > **Contexte.** Jeudi, retour de crise de **Mme Lefèvre** (persona enseignante introduite en J1) :
 > elle signale des **erreurs factuelles** dans des questions générées. La boucle utilisateur
 > promise en J1 est-elle réellement intégrée ? L'attendu J4 combine un volet **managérial**
-> (artefacts + risques + pilotage, déjà couverts dans [`../artefacts/perturbation5/`](../artefacts/perturbation5/))
+> (artefacts + risques + pilotage, intégrés directement dans les artefacts de cadrage —
+> [`../cadrage/`](../cadrage/) : persona Lucia, story map, backlog + annexe risques)
 > et un volet **qualité / crise** documenté ici.
 
 ## Contenu du dossier
@@ -17,7 +18,7 @@
 
 D'après `contexte/grille-evaluation.xlsx`, la **Perturbation 5** notée porte sur
 l'**accessibilité / Erasmus / scaling européen** (MAJ des artefacts) — déjà traitée dans
-`docs/artefacts/perturbation5/`. Les livrables de crise ci-dessus (post-mortem, audit,
+les artefacts de cadrage (`docs/cadrage/`). Les livrables de crise ci-dessus (post-mortem, audit,
 `QuestionReport`) proviennent du **scénario détaillé de `consigne.md`** ; ils **renforcent** le
 dossier (preuve de boucle utilisateur et de démarche qualité) mais ne sont pas notés ligne à ligne.
 Ils sont produits comme **documents** ; l'implémentation du modèle reste un **bonus technique**.

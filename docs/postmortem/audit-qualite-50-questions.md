@@ -1,6 +1,6 @@
 # Audit qualité — 50 questions générées
 
-**Date :** 2026-07-02 · **Auditeurs :** 2 relecteurs (croisement) · **Modèle audité :** backend LLM courant (cf. [`../adr/ADR-J2-grp1.md`](../adr/ADR-J2-grp1.md))
+**Date :** 2026-07-02 · **Auditeurs :** 2 relecteurs (croisement) · **Modèle audité :** backend LLM courant (cf. [`../adr/ADR-J2-CHOIX-DU-LLM.md`](../adr/ADR-J2-CHOIX-DU-LLM.md))
 
 > Objectif : **mesurer** l'exactitude factuelle des quiz générés plutôt que la supposer, suite au
 > signalement de Mme Lefèvre. Méthode reproductible pour un suivi récurrent.
