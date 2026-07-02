@@ -101,18 +101,27 @@ TEMPLATES = [
 ]
 
 # ----------------------------------------------------------------------------
-# Base de données — Postgres via Docker
+# Base de données — Postgres via Docker (repli SQLite pendant les tests)
 # ----------------------------------------------------------------------------
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": config("POSTGRES_DB", default="apocal"),
-        "USER": config("POSTGRES_USER", default="apocal"),
-        "PASSWORD": config("POSTGRES_PASSWORD", default="apocal-dev-only"),
-        "HOST": config("POSTGRES_HOST", default="postgres"),
-        "PORT": config("POSTGRES_PORT", default="5432"),
+import sys
+if "test" in sys.argv or "pytest" in sys.modules:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": config("POSTGRES_DB", default="apocal"),
+            "USER": config("POSTGRES_USER", default="apocal"),
+            "PASSWORD": config("POSTGRES_PASSWORD", default="apocal-dev-only"),
+            "HOST": config("POSTGRES_HOST", default="postgres"),
+            "PORT": config("POSTGRES_PORT", default="5432"),
+        }
+    }
 
 # ----------------------------------------------------------------------------
 # Validation mots de passe
